@@ -4,15 +4,18 @@
     <base href="/" />
     <title>JNome Test</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="browser/styles/custom.css">
     <script src="/angular/angular.js" defer></script>
 </head>
-    <div style="background:url('../public/dna-ring.gif')no-repeat; width:800px; height:800px" class="container text-center">
-        <div class="col-md-12">
-            <h1>Welcome to J-Nome</h1>
-            <h5>J-Nome is a Genome Analyzer</h5>
-        </div>
-        <div class="row">
-            <button ng-click="runAnalysis()" class="btn btn-success">Analyze Genome</button>
+    <div style="background:url('../public/dna-ring.gif')no-repeat; width:800px; height:900px" class="container text-center">
+        <div class="landing">
+                <div class="col-md-12">
+                    <h1 class="clarity">Welcome to J-Nome</h1>
+                    <h5 class="clarity">J-Nome is a Genome Analyzer</h5>
+                </div>
+                <div class="row">
+                    <button ng-click="runAnalysis()" class="btn btn-info">Analyze Genome</button>
+                </div>
         </div>
     </div>
 </body>
