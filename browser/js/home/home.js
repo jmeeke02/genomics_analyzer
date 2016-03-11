@@ -8,7 +8,7 @@ app.config(function ($stateProvider) {
     	templateUrl: 'browser/js/analyzer/analyzer.html',
     	controller: 'AnalyzerCtrl',
     	resolve: {
-    		dataSet: function(AnalyzerFactory){
+    		dataset: function(AnalyzerFactory){
     			console.log('runs');
     			return AnalyzerFactory.getExampleResults()
     			.then(function(allTests){

@@ -17,9 +17,18 @@ app.use(express.static(rootPath + 'node_modules'));
 app.get('/data', function (req, res, next) {
 	console.log('getting data');
 	var testingSuite = data.tests;
-	var testSubject = data.subjects[0];
+	var testSubject = data.subjects[1];
 	var results = data.DNAJSON(testingSuite, testSubject);
-	res.json(results);
+	var totalHealthScore = 0;
+	results.forEach(function (result){
+		if(result.booleanVal) totalHealthScore += Number(result.healthFactor);
+		console.log('results', result, totalHealthScore);
+	})
+	var profile = {
+		keyResults: results,
+		healthScore: totalHealthScore
+	}
+	res.json(profile);
 })
 
 app.get('/', function (req, res) {
