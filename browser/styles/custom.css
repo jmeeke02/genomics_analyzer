@@ -3,7 +3,7 @@
 }
 
 .green {
-	background-color: green;
+	background-color: #46BFBD;
 }
 
 .chromo {
@@ -12,8 +12,12 @@
 	margin-left: auto;
 }
 
+.yellow {
+	background-color: #FDB45C;
+}
+
 .red {
-	background-color: red;
+	background-color: #F7464A;
 }
 
 .highlight {

@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var app = express();
-var data = require('../dnaTests.js');
+var testObj = require('../dnaTests.js');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -18,17 +18,30 @@ app.use(express.static(rootPath + 'node_modules'));
 
 app.get('/data', function (req, res, next) {
 	console.log('getting data');
-	var testingSuite = data.tests;
-	var testSubject = data.subjects[0];
-	var results = data.DNAJSON(testingSuite, testSubject);
+	var testingSuite = testObj.tests;
+	var testSubject = testObj.subjects[1];
+
+	var generalResults = testObj.funcs.runGeneral(testingSuite.general, testSubject);
+	var highRiskResults = testObj.funcs.runHighRisk(testingSuite.highrisk, testSubject);
+	var highRiskCancerResults = testObj.funcs.runHigRiskCancer(testingSuite.highriskcancer, testSubject);
+	var lowRiskResults = testObj.funcs.runLowRisk(testingSuite.lowrisk, testSubject);
+	var preventionResults = testObj.funcs.runPrevention(testingSuite.prevent, testSubject);
+	var immunityResults = testObj.funcs.runImmunity(testingSuite.immunity, testSubject);
 	var totalHealthScore = 0;
-	results.forEach(function (result){
+	highRiskResults.forEach(function (result){
 		if(result.booleanVal) totalHealthScore += Number(result.healthFactor);
 		console.log('results', result, totalHealthScore);
 	})
 	var profile = {
-		keyResults: results,
-		healthScore: totalHealthScore
+		healthScore: totalHealthScore,
+		results: {
+			general: generalResults,
+			highrisk: highRiskResults,
+			highriskcancer: highRiskCancerResults,
+			lowrisk: lowRiskResults,
+			prevent: preventionResults,
+			immunity: immunityResults
+		}
 	}
 	res.json(profile);
 })
