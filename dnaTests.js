@@ -68,7 +68,7 @@ norovirusTest.desc = "Immune to norovirus";
 
 
 //TEST LIST
-var diagnosticsTestSuite =  [maleTest, baldTest, lessCaffineStimulationCYP1A2Test, bitterTasteTest, rapidMetabolismCYP2C19Test, panicDisorderTest, lactoseIntoleranceTest, parkinsonsDiseaseHighRiskTest, alzheimersHighRiskTest, type1DiabetesTest, thyroidCancerTest, basalCellCarcinoma123Test, basalCellCarcinoma126Test, breastCancer65Test, prostateCancerDeathRiskTest, parkinsonsDiseaseLowRiskTest, poorMetabolizerCYP2C19Test, poorMetabolizerCYP2C9Test, norovirusTest];
+var diagnosticsTestSuite =  [maleTest, baldTest, lessCaffineStimulationCYP1A2Test, bitterTasteTest, rapidMetabolismCYP2C19Test, panicDisorderTest, lactoseIntoleranceTest, parkinsonsDiseaseHighRiskTest, alzheimersHighRiskTest, type1DiabetesTest, thyroidCancerTest, basalCellCarcinoma123Test, basalCellCarcinoma126Test, breastCancer65Test, prostateCancerDeathRiskTest,  poorMetabolizerCYP2C19Test, poorMetabolizerCYP2C9Test, norovirusTest];
 
 
 //TEST SUBJECTS
@@ -79,16 +79,22 @@ var dna2 = require('./data/json/ancestry-female.json');
 var testSubjects = [dna, dna2];
 
 
+
 //DIAGNOSTIC TESTS RUNNER
-function runDNAJSON (dnaSubjects, testSuite){
-	console.log('\n');
-	dnaSubjects.forEach(function(subject){
-		testSuite.forEach(function(diagnosticTest, i) {
-			console.log(diagnosticTest.desc + " : " + diagnosticTest(subject));
-		})
-		console.log('\n');
+function runDNAJSON (testSuite, subject){
+	var testResults = testSuite.map(function(diagnosticTest, i) {
+		return diagnosticTest.desc + " : " + diagnosticTest(subject);
 	})
+	return testResults;
 }
 
+var testSuiteObj = {
+	DNAJSON: runDNAJSON,
+	tests: diagnosticsTestSuite,
+	subjects: testSubjects
+};
+
 //run diagnostics for each user in list
-runDNAJSON(testSubjects, diagnosticsTestSuite);
+// runDNAJSON(testSubjects, diagnosticsTestSuite);
+
+module.exports = testSuiteObj

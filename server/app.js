@@ -3,15 +3,24 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var app = express();
+var data = require('../dnaTests.js');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 var rootPath = path.join(__dirname, '../');
-var indexPath = path.join(rootPath, './browser/index.html');
+var indexPath = path.join(rootPath, '/browser/index.html');
 
 app.use(express.static(rootPath));
-app.use(express.static(rootPath + '/node_modules'));
+app.use(express.static(rootPath + 'node_modules'));
+
+app.get('/data', function (req, res, next) {
+	console.log('getting data');
+	var testingSuite = data.tests;
+	var testSubject = data.subjects[0];
+	var results = data.DNAJSON(testingSuite, testSubject);
+	res.json(results);
+})
 
 app.get('/', function (req, res) {
     res.sendFile(indexPath);
