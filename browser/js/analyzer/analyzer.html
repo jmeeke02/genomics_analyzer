@@ -1,9 +1,12 @@
 <div class="container clarity">
-	<h3> Test Results</h3>
-	<h5> Overall Health Score: {{profile.healthScore}} </h5>
-	<div class="col-md-12">
-			<img src="../../../public/chromosomes.jpg">
+	<div class="text-center">
+		<h2> Test Results</h2>
+		<h4> Overall Health Score: {{profile.healthScore}} </h4>
 	</div>
+	<div class="col-md-12">
+			<img class="chromo" src="../../../public/chromosomes.jpg">
+	</div>
+	<h3 class="text-center"> Breakdown </h3>
 	<div class="row">
 		<div ng-class="{highlight: test.booleanVal}" class="col-md-2 unit-test" ng-repeat="test in tests">
 			<strong >Test ID: {{test.key}}</strong>
@@ -14,4 +17,5 @@
 		</div>
 		
 	</div>
+	<div>Disclosure: These results are in no way 100% indication of risk or disease. Please consult a real physician if you have further questions</div>
 </div>

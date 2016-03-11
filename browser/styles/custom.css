@@ -6,6 +6,12 @@
 	background-color: green;
 }
 
+.chromo {
+	margin-right: auto;
+	width: 100%;
+	margin-left: auto;
+}
+
 .red {
 	background-color: red;
 }

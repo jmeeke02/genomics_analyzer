@@ -128,7 +128,6 @@ norovirusTest.key = "norovirus";
 norovirusTest.desc = "Immune to norovirus";
 norovirusTest.healthFactor = 1;
 
-
 //TEST LIST
 var diagnosticsTestSuite =  [maleTest, baldTest, lessCaffineStimulationCYP1A2Test, bitterTasteTest, rapidMetabolismCYP2C19Test, panicDisorderTest, lactoseIntoleranceTest, parkinsonsDiseaseHighRiskTest, alzheimersHighRiskTest, type1DiabetesTest, thyroidCancerTest, basalCellCarcinoma123Test, basalCellCarcinoma126Test, breastCancer65Test, prostateCancerDeathRiskTest,  poorMetabolizerCYP2C19Test, poorMetabolizerCYP2C9Test, norovirusTest];
 
@@ -139,8 +138,6 @@ var dna2 = require('./data/json/ancestry-female.json');
 
 //SUBJECT LIST
 var testSubjects = [dna, dna2];
-
-
 
 //DIAGNOSTIC TESTS RUNNER
 function runDNAJSON (testSuite, subject){
@@ -161,7 +158,5 @@ var testSuiteObj = {
 	subjects: testSubjects
 };
 
-//run diagnostics for each user in list
-// runDNAJSON(testSubjects, diagnosticsTestSuite);
 
 module.exports = testSuiteObj

@@ -15,10 +15,11 @@ app.use(express.static(rootPath));
 app.use(express.static(rootPath + 'node_modules'));
 
 
+
 app.get('/data', function (req, res, next) {
 	console.log('getting data');
 	var testingSuite = data.tests;
-	var testSubject = data.subjects[1];
+	var testSubject = data.subjects[0];
 	var results = data.DNAJSON(testingSuite, testSubject);
 	var totalHealthScore = 0;
 	results.forEach(function (result){
