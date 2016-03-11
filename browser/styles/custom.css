@@ -2,6 +2,25 @@
 	color: white;
 }
 
+.green {
+	background-color: green;
+}
+
+.red {
+	background-color: red;
+}
+
+.highlight {
+	background-color: #333333;
+	border-radius: 5px;
+}
+
+.unit-test {
+	padding-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .landing {
 	margin-top: 32%;
 }
