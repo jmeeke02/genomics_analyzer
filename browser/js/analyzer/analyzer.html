@@ -1,5 +1,17 @@
 <div class="container clarity">
-	<h3> DATA TEST</h3>
+	<h3> Test Results</h3>
 	<h5> Health Score: {{profile.healthScore}} </h5>
-	<p ng-repeat="test in tests">{{test}}</p>
+	<div class="col-md-12">
+			<img src="../../../public/chromosomes.jpg">
+	</div>
+	<div class="row">
+		<div class="col-md-2" ng-repeat="test in tests">
+			<strong>Test ID: {{test.key}}</strong>
+			<p>Description: {{test.description}}</p>
+			<p>Result: {{test.booleanVal}}</p>
+			<p>Factor: {{test.healthFactor}}</p>
+			<br></br>
+		</div>
+		
+	</div>
 </div>

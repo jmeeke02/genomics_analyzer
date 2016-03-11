@@ -49,11 +49,14 @@ rapidMetabolismCYP2C19Test.healthFactor = 0;
 var panicDisorderTest = require('genoset-209');
 panicDisorderTest.key = "panic";
 panicDisorderTest.desc = "High risk of panic disorders";
+panicDisorderTest.snps = ['rs3794808', 'rs140701', 'rs4583306']
+panicDisorderTest.riskMultiplier = 1.7;
 panicDisorderTest.healthFactor = Number(-1);
 
 var lactoseIntoleranceTest = require('genoset-101');
 lactoseIntoleranceTest.key = "lactose";
-lactoseIntoleranceTest.desc = "High risk of lactose intolerance";
+lactoseIntoleranceTest.desc = "Not lactose intolerant";
+lactoseIntoleranceTest.snps = [];
 lactoseIntoleranceTest.healthFactor = 0;
 
 var parkinsonsDiseaseHighRiskTest = require('genoset-249');
@@ -75,11 +78,15 @@ type1DiabetesTest.healthFactor = Number(-1);
 var thyroidCancerTest = require('genoset-137');
 thyroidCancerTest.key = "thyroid";
 thyroidCancerTest.desc = "High risk of thyroid cancer";
+thyroidCancerTest.snps = ["rs965513", "rs944289"];
+thyroidCancerTest.riskMultiplier = 5.7;
 thyroidCancerTest.healthFactor = Number(-1);
 
 var basalCellCarcinoma123Test = require('genoset-123');
 basalCellCarcinoma123Test.key = "basal123";
 basalCellCarcinoma123Test.desc = "High risk of basal cell carcinoma123";
+basalCellCarcinoma123Test.snps = ["rs7538876", "rs801114 "];
+basalCellCarcinoma123Test.riskMultiplier = 2.7;
 basalCellCarcinoma123Test.healthFactor = Number(-1);
 
 var basalCellCarcinoma126Test = require('genoset-126');
@@ -101,6 +108,7 @@ prostateCancerDeathRiskTest.healthFactor = Number(-1);
 var parkinsonsDiseaseLowRiskTest = require('genoset-248');
 parkinsonsDiseaseLowRiskTest.key = "parkinsonslow";
 parkinsonsDiseaseLowRiskTest.desc = "Low risk of parkinsons disease";
+parkinsonsDiseaseLowRiskTest.snps = ["rs34637584", "rs11755699"]
 parkinsonsDiseaseLowRiskTest.healthFactor = 1;
 
 //PREVENTION
