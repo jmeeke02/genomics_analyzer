@@ -16,10 +16,12 @@ app.use(express.static(rootPath + 'node_modules'));
 
 
 
-app.get('/data', function (req, res, next) {
+app.get('/data/:key', function (req, res, next) {
 	console.log('getting data');
 	var testingSuite = testObj.tests;
-	var testSubject = testObj.subjects[1];
+	//check for a test subject
+	if(req.params.key) var testSubject = testObj.subjects[Number(req.params.key)];
+	else var testSubject = testObj.subjects[0];
 
 	var generalResults = testObj.funcs.runGeneral(testingSuite.general, testSubject);
 	var highRiskResults = testObj.funcs.runHighRisk(testingSuite.highrisk, testSubject);

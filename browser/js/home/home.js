@@ -4,13 +4,13 @@ app.config(function ($stateProvider) {
         templateUrl: 'browser/js/home/home.html',
     }),
     $stateProvider.state('analyzer', {
-    	url:'/analyzer',
+    	url:'/analyzer/:userid',
     	templateUrl: 'browser/js/analyzer/analyzer.html',
     	controller: 'AnalyzerCtrl',
     	resolve: {
-    		dataset: function(AnalyzerFactory){
+    		dataset: function(AnalyzerFactory, $stateParams){
     			console.log('runs');
-    			return AnalyzerFactory.getExampleResults()
+    			return AnalyzerFactory.getExampleResults($stateParams.userid)
     			.then(function(allTests){
     				return allTests;
     			})

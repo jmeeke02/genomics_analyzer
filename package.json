@@ -11,8 +11,10 @@
   "dependencies": {
     "JSONStream": "^1.1.1",
     "angular": "^1.5.0",
+    "angular-ui-bootstrap": "^1.2.4",
     "angular-ui-router": "^0.2.18",
     "body-parser": "^1.15.0",
+    "bootstrap": "^3.3.6",
     "chart.js": "^1.0.2",
     "dna2json": "^1.0.1",
     "event-stream": "^3.3.2",

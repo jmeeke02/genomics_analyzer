@@ -5,7 +5,18 @@
                 <h5 class="clarity">J-Nome is a Genome Analyzer</h5>
             </div>
             <div class="row">
-                <a ui-sref="analyzer" class="btn btn-info">Analyze Genome</a>
+                <div class="btn-group">
+				  <button class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Analyze Genome <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li ui-sref="analyzer({userid: 0})">Test Subject 1 </li>
+				    <li ui-sref="analyzer({userid: 1})"> Test Subject 2 </li>
+				    <li ui-sref="analyzer({userid: 2})"> Test Subject 3 </li>
+				    <li role="separator" class="divider"></li>
+				    <li ui-sref="upload"> Upload your own Genome </li>
+				  </ul>
+				</div>
             </div>
     </div>
 </div>
