@@ -20,6 +20,10 @@
 	background-color: #F7464A;
 }
 
+a {
+	 cursor: pointer;
+}
+
 .highlight {
 	background-color: #333333;
 	border-radius: 5px;

@@ -17,7 +17,6 @@ app.use(express.static(rootPath + 'node_modules'));
 
 
 app.get('/data/:key', function (req, res, next) {
-	console.log('getting data');
 	var testingSuite = testObj.tests;
 	//check for a test subject
 	if(req.params.key) var testSubject = testObj.subjects[Number(req.params.key)];
@@ -35,7 +34,6 @@ app.get('/data/:key', function (req, res, next) {
 	function aggregateTestData (results, factor) {
 		var localAccumulator = 0;
 		results.forEach(function (result){
-			console.log("TEST", localAccumulator, factor);
 			if(result.booleanVal){
 				totalHealthScore += (Number(result.healthFactor) * result[factor]);	
 				localAccumulator += (Number(result.healthFactor) * result[factor]);
@@ -43,6 +41,7 @@ app.get('/data/:key', function (req, res, next) {
 		})
 		return localAccumulator;
 	}
+	console.log('totalHealthScore', totalHealthScore);
 
 	var profile = {
 		healthScores: {
