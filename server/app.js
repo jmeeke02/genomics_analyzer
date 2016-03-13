@@ -29,11 +29,6 @@ app.get('/data', function (req, res, next) {
 	var immunityResults = testObj.funcs.runImmunity(testingSuite.immunity, testSubject);
 
 	var totalHealthScore = 0;
-	var totalRiskHealthScore = aggregateTestData(highRiskResults, "riskMultiplier");
-	var totalCancerRiskHealthScore = aggregateTestData(highRiskCancerResults, "riskMultiplier");
-	var totalLowRiskHealthScore = aggregateTestData(lowRiskResults, "riskMultiplier");
-	var totalPreventionHealthScore = aggregateTestData(preventionResults, "magnitude");
-
 
 	function aggregateTestData (results, factor) {
 		var localAccumulator = 0;
@@ -45,16 +40,15 @@ app.get('/data', function (req, res, next) {
 			} 
 		})
 		return localAccumulator;
-
 	}
 
 	var profile = {
 		healthScores: {
 			total:  totalHealthScore,
-			highrisk: totalRiskHealthScore,
-			highriskcancer: totalCancerRiskHealthScore,
-			lowrisk: totalLowRiskHealthScore,
-			prevention: totalPreventionHealthScore
+			highrisk:  aggregateTestData(highRiskResults, "riskMultiplier"),
+			highriskcancer: aggregateTestData(highRiskCancerResults, "riskMultiplier"),
+			lowrisk: aggregateTestData(lowRiskResults, "riskMultiplier"),
+			prevention: aggregateTestData(preventionResults, "magnitude")
 		},
 		results: {
 			general: generalResults,
