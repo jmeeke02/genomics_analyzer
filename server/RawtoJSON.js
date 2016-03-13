@@ -8,10 +8,10 @@ var rootPath = path.join(__dirname, '../');
 module.exports = function(){
 	//this is a synchronous operation, no need to promisify https://github.com/petkaantonov/bluebird/issues/225
   var text = fs.readFileSync(path.join(rootPath, "data/raw/user-upload.txt"));
-  text = JSON.stringify(text);
+  text = text.toString();
   console.log(typeof text);
   dna.parse(text, function(err, snps){
   	if(err) console.log(err);
-  	fs.writeFileSync(path.join(rootPath, "data/json/user-upload.json"), JSON.stringify(snps));
+  	else fs.writeFileSync(path.join(rootPath, "data/json/user-upload.json"), JSON.stringify(snps));
   })
 };
