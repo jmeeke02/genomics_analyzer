@@ -4,7 +4,9 @@ var fs = require('fs');
  
 
  //turns the raw text data into a JSON file that can be interpreted by SNPs
-fs.createReadStream("./data/23andme-male.txt")
+module.exports = function(){
+  fs.createReadStream("../data/user-upload.txt")
   .pipe(dna.createParser())
   .pipe(JSONStream.stringify())
-  .pipe(fs.createWriteStream("./data/23andme-male_converted.json"));
+  .pipe(fs.createWriteStream("../data/user-upload.json"));
+}
