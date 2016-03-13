@@ -19,7 +19,7 @@ app.use(express.static(rootPath + 'node_modules'));
 app.get('/data', function (req, res, next) {
 	console.log('getting data');
 	var testingSuite = testObj.tests;
-	var testSubject = testObj.subjects[2];
+	var testSubject = testObj.subjects[1];
 
 	var generalResults = testObj.funcs.runGeneral(testingSuite.general, testSubject);
 	var highRiskResults = testObj.funcs.runHighRisk(testingSuite.highrisk, testSubject);
@@ -28,12 +28,43 @@ app.get('/data', function (req, res, next) {
 	var preventionResults = testObj.funcs.runPrevention(testingSuite.prevent, testSubject);
 	var immunityResults = testObj.funcs.runImmunity(testingSuite.immunity, testSubject);
 	var totalHealthScore = 0;
+	var totalRiskHealthScore = 0;
 	highRiskResults.forEach(function (result){
-		if(result.booleanVal) totalHealthScore += Number(result.healthFactor);
-		console.log('results', result, totalHealthScore);
+		if(result.booleanVal){
+			totalHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
+			totalRiskHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
+		} 
 	})
+	var totalCancerRiskHealthScore = 0;
+	highRiskCancerResults.forEach(function (result){
+		if(result.booleanVal) {
+			totalHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
+			totalCancerRiskHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
+		} 
+	})
+	var totalLowRiskHealthScore = 0;
+	lowRiskResults.forEach(function (result){
+		if(result.booleanVal) {
+			totalHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
+			totalLowRiskHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
+		} 
+	})
+	var totalPreventionHealthScore = 0;
+	preventionResults.forEach(function (result){
+		if(result.booleanVal){
+			totalHealthScore += (Number(result.healthFactor) * result.magnitude);	
+			totalPreventionHealthScore += (Number(result.healthFactor) * result.magnitude);
+		} 
+	})
+	
 	var profile = {
-		healthScore: totalHealthScore,
+		healthScores: {
+			total:  totalHealthScore,
+			highrisk: totalRiskHealthScore,
+			highriskcancer: totalCancerRiskHealthScore,
+			lowrisk: totalLowRiskHealthScore,
+			prevention: totalPreventionHealthScore
+		},
 		results: {
 			general: generalResults,
 			highrisk: highRiskResults,
