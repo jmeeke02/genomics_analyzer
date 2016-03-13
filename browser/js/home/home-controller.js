@@ -6,7 +6,7 @@ app.controller('HomeCtrl', function ($scope, $state, AnalyzerFactory) {
 })
 
 
-app.directive('fileModel', function ($http) {
+app.directive('fileModel', function ($http, $state) {
     return {
         restrict: 'A',
         scope: {
@@ -27,7 +27,11 @@ app.directive('fileModel', function ($http) {
                     $http.post('/upload', {
                         name: file.name,
                         data: reader.result
-                    });
+                    })
+                    .then(function (response){
+                    	if(response.data) $state.go("anaylzer", {userid: 3});
+                    	else throw Error('Error uploading file');
+                    })
 
                 }
             });

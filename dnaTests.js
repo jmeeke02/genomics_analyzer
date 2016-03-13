@@ -321,10 +321,11 @@ var diagnosticsTestSuite = {
 var dna = require('./data/json/23andme-male.json');
 var dna2 = require('./data/json/ancestry-female.json');
 var dna3 = require('./data/json/family-tree-male.json');
+var dna4 = require('./data/json/user-upload.json');
 
 
 //SUBJECT LIST
-var testSubjects = [dna, dna2, dna3];
+var testSubjects = [dna, dna2, dna3, dna4];
 
 //DIAGNOSTIC TESTS RUNNER
 function runDNAJSON (testSuite, subject){

@@ -16,11 +16,14 @@ var indexPath = path.join(rootPath, '/browser/index.html');
 app.use(express.static(rootPath));
 app.use(express.static(rootPath + 'node_modules'));
 
-app.post('/upload', function (req, res) {
+app.post('/upload', function (req, res, next) {
     var textData = req.body.data;
     fs.writeFile(path.join(rootPath, '/data/raw/user-upload.txt'), textData, 'utf8', function (e) {
         if (e) console.error(e);
-        else convertJSON();
+        else{
+        	convertJSON();
+        	res.sendStatus(201);
+        } 
     });
 });
 
