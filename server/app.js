@@ -39,13 +39,13 @@ app.get('/data/:key', function (req, res, next) {
 				localAccumulator += (Number(result.healthFactor) * result[factor]);
 			} 
 		})
+		console.log("total", totalHealthScore);
 		return localAccumulator;
 	}
 	console.log('totalHealthScore', totalHealthScore);
 
 	var profile = {
 		healthScores: {
-			total:  totalHealthScore,
 			highrisk:  aggregateTestData(highRiskResults, "riskMultiplier"),
 			highriskcancer: aggregateTestData(highRiskCancerResults, "riskMultiplier"),
 			lowrisk: aggregateTestData(lowRiskResults, "riskMultiplier"),

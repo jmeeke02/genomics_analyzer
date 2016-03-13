@@ -8,6 +8,15 @@ app.controller('AnalyzerCtrl', function ($scope, $state, dataset){
 	$scope.preventionTests = dataset.results.prevent;
 	$scope.immunityTests = dataset.results.immunity;
 	console.log('heres dataset', dataset);
+	$scope.profile.healthScores.total = 0;
+
+	var total = 0;
+	for(let key in $scope.profile.healthScores){
+		total +=  $scope.profile.healthScores[key];
+		console.log(total);
+	}
+
+	$scope.total = total;
 
 	var data = [];
 	dataset.results.highriskcancer.forEach(function (el, i){
