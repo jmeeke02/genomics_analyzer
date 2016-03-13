@@ -216,6 +216,14 @@ breastCancer120Test.snps = ['rs1501299', 'rs2241766' ];
 breastCancer120Test.riskMultiplier = 4;
 breastCancer120Test.healthFactor = Number(-1);
 
+var esophagealCancerTest = require('./genoset-244');
+esophagealCancerTest.key = 'esophageal';
+esophagealCancerTest.desc = "You have a total of 3 or 4 SNP variants (out of 6) associated in Han Chinese with increased risk for esophageal squamous cell cancer.";
+esophagealCancerTest.link = "http://www.snpedia.com/index.php/Gs244";
+esophagealCancerTest.snps = ['rs11066015', 'rs10052657', 'rs2014300', 'rs2074356', 'rs10484761', 'rs2274223'];
+esophagealCancerTest.riskMultiplier = 2;
+esophagealCancerTest.healthFactor = Number(-1);
+
 //LOW RISK
 var parkinsonsDiseaseLowRiskTest = require('genoset-248');
 parkinsonsDiseaseLowRiskTest.key = "parkinsonslow";
@@ -241,6 +249,14 @@ heartAttackLowRisk295Test.link = "http://www.snpedia.com/index.php/Gs295";
 heartAttackLowRisk295Test.riskMultiplier = 0.46;
 heartAttackLowRisk295Test.healthFactor = 1;
 
+var heartAttackLowRisk296Test = require('./genoset-296');
+heartAttackLowRisk296Test.key = 'heartattacklow3';
+heartAttackLowRisk296Test.desc = 'This genoset is reported as having 0.59x the risk of a heart attack or cardiovascular incident.';
+heartAttackLowRisk296Test.snps = ['rs1108580', 'rs1611115'];
+heartAttackLowRisk296Test.link = "http://www.snpedia.com/index.php/Gs296";
+heartAttackLowRisk296Test.riskMultiplier = 0.59;
+heartAttackLowRisk296Test.healthFactor = 1;
+
 var bloodPressureLowRisk = require('./genoset-265');
 bloodPressureLowRisk.key= "bloodpressure";
 bloodPressureLowRisk.desc = "Associated with decreased diastolic blood pressure levels";
@@ -248,6 +264,14 @@ bloodPressureLowRisk.snps = ['rs6046', 'rs5355'];
 bloodPressureLowRisk.link = "http://www.snpedia.com/index.php/Gs265";
 bloodPressureLowRisk.riskMultiplier = 0.3;
 bloodPressureLowRisk.healthFactor = 1;
+
+var betterEpisodicMemoryTest = require('./genoset-278');
+betterEpisodicMemoryTest.key = "bettermemory";
+betterEpisodicMemoryTest.desc = "Older adults having this combination of genotypes from the DRD2 (glutamate) and NR3A (aspartate) associated receptors show better episodic memory performance compared to all other genotypes.";
+betterEpisodicMemoryTest.snps = ['rs6277', 'rs10989591']
+betterEpisodicMemoryTest.link = "http://www.snpedia.com/index.php/Gs278";
+betterEpisodicMemoryTest.riskMultiplier = 0.15;
+betterEpisodicMemoryTest.healthFactor = 1;
 
 //PREVENTION
 var sickleCellAnemiaTest =  require('./genoset-228');
@@ -282,6 +306,22 @@ poorMetabolizerWarfarin.link =  "http://www.snpedia.com/index.php/Gs126";
 poorMetabolizerWarfarin.magnitude = 3.5;
 poorMetabolizerWarfarin.snps = ['rs1799853', 'rs1057910', 'rs1799853', 'rs1057910'];
 
+var lessMultivitaminResponseTest = require('./genoset-231');
+lessMultivitaminResponseTest.key = 'multivitamin';
+lessMultivitaminResponseTest.desc = 'You have the genotype which is suspected of not responding to multivitamins.';
+lessMultivitaminResponseTest.healthFactor = Number(-1);
+lessMultivitaminResponseTest.magnitude = 3;
+lessMultivitaminResponseTest.link = 'http://www.snpedia.com/index.php/Gs231';
+lessMultivitaminResponseTest.snps = ["rs1801131", "rs1801133"];
+
+var impairedNSAIDMetabolismTest = require('./genoset-191');
+impairedNSAIDMetabolismTest.key = 'nsaid';
+impairedNSAIDMetabolismTest.desc = 'Impaired NSAID drug metabolism, which is a risk factor for gastrointestinal bleeding when taking certain medications.';
+impairedNSAIDMetabolismTest.healthFactor = Number(-1);
+impairedNSAIDMetabolismTest.magnitude = 3.1;
+impairedNSAIDMetabolismTest.link = 'http://www.snpedia.com/index.php/Gs191';
+impairedNSAIDMetabolismTest.snps = ["rs1799853", "rs1057910", "rs11572080"];
+
 //IMMUNITY
 var norovirusTest = require('genoset-norovirus');
 norovirusTest.key = "norovirus";
@@ -298,11 +338,11 @@ var generalTestSuite = [maleTest, gingerTest, baldTest, blueEyesTest, lessCaffin
 
 var highRiskTestSuite = [panicDisorderTest, parkinsonsDiseaseHighRiskTest, alzheimersHighRiskTest, type1DiabetesTest, venousThrombosisTest, macularDegenerationTest, rheumatoidArthritisRiskTest, bh4RiskTest];
 
-var highRiskCancerTestSuite = [thyroidCancerTest, basalCellCarcinoma123Test, breastCancer65Test, prostateCancerDeathRiskTest, malignantMelanomaTest, colorectalCancerTest, ovarianCancerTest, breastCancer120Test];
+var highRiskCancerTestSuite = [thyroidCancerTest, basalCellCarcinoma123Test, breastCancer65Test, prostateCancerDeathRiskTest, malignantMelanomaTest, colorectalCancerTest, ovarianCancerTest, breastCancer120Test, esophagealCancerTest];
 
-var lowRiskTestSuite = [parkinsonsDiseaseLowRiskTest, heartAttackLowRiskTest, bloodPressureLowRisk, heartAttackLowRisk295Test];
+var lowRiskTestSuite = [parkinsonsDiseaseLowRiskTest, heartAttackLowRiskTest, bloodPressureLowRisk, heartAttackLowRisk295Test, heartAttackLowRisk296Test, betterEpisodicMemoryTest];
 
-var preventativeTestSuite = [sickleCellAnemiaTest, poorMetabolizerCYP2C19Test, poorMetabolizerCYP2C9Test, poorMetabolizerWarfarin];
+var preventativeTestSuite = [sickleCellAnemiaTest, poorMetabolizerCYP2C19Test, impairedNSAIDMetabolismTest, poorMetabolizerCYP2C9Test, poorMetabolizerWarfarin, lessMultivitaminResponseTest];
 
 var immunityTestSuite = [norovirusTest];
 

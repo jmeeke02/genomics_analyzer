@@ -62,7 +62,7 @@ app.controller('AnalyzerCtrl', function ($scope, $state, dataset){
 	            label: "Prevention Data",
 	            fillColor: "#F7464A",
 	            strokeColor: "rgba(220,220,220,0.8)",
-	            highlightFill: "rgba(220,220,220,0.75)",
+	            highlightFill:  "#FFC870",
 	            highlightStroke: "rgba(220,220,220,1)",
 	            data: []
 	        }
@@ -70,8 +70,13 @@ app.controller('AnalyzerCtrl', function ($scope, $state, dataset){
 	}
 
 	dataset.results.prevent.forEach(function (el, i){
+		console.log(el);
 		preventionData.labels.push(el.key);
 		preventionData.datasets[0].data.push(el.magnitude)
+		if(el.booleanVal === true){
+			preventionData.datasets[0].fillColor = "#46BFBD";
+			HighRiskData[i].highlightFill = "#5AD3D1";
+		}
 	})
 
 	var ctx3 = document.getElementById("prevention").getContext("2d");
