@@ -7,7 +7,7 @@ maleTest.key = "gender";
 maleTest.desc = "Is Male";
 maleTest.healthFactor = 0;
 maleTest.snps = ["rs2032651", "rs9341296", "rs13304168", "rs1118473", "rs150173", "rs1558843", "rs1558843", "rs16980426", "rs17222419"];
-maleTest.chromosomes = ["Y"]
+maleTest.chromosomes = "Y";
 maleTest.link = "http://www.snpedia.com/index.php/Gs144";
 maleTest.interpreter = function(data){
 	if(this(data)) return {gender: 'Male'}
@@ -19,7 +19,7 @@ gingerTest.key = "ginger";
 gingerTest.desc = "Is Ginger";
 gingerTest.healthFactor = 0;
 gingerTest.snps = ["rs1805007", "rs1805008", "rs1805009"];
-gingerTest.chromosomes = ["16"];
+gingerTest.chromosomes = "16";
 gingerTest.link = "http://www.snpedia.com/index.php/Gs238";
 
 var baldTest = require('genoset-122');
@@ -27,7 +27,7 @@ baldTest.key = "bald";
 baldTest.desc = "Is likely to go Bald";
 baldTest.healthFactor = 0;
 baldTest.snps = ["rs6625163", "rs1160312", "rs1160312", "rs201571", "rs6036025"];
-baldTest.chromosomes = ["X", "20"];
+baldTest.chromosomes = "X & 20";
 baldTest.link = "http://www.snpedia.com/index.php/Gs122";
 baldTest.interpreter = function(data){
 	if(this(data)) return {bald: 'Likey to go bald'}
@@ -39,7 +39,7 @@ blueEyesTest.key = 'blue';
 blueEyesTest.desc = "Blue eye haplotype #2";
 blueEyesTest.healthFactor = 0;
 blueEyesTest.snps = ['rs1129038', 'rs12913832'];
-blueEyesTest.chromosomes = ["15"]
+blueEyesTest.chromosomes = "15";
 blueEyesTest.link = 'http://www.snpedia.com/index.php/Gs257';
 
 
@@ -52,7 +52,7 @@ lessCaffineStimulationCYP1A2Test.key = "caffine";
 lessCaffineStimulationCYP1A2Test.desc = "Has less caffine stimulation";
 lessCaffineStimulationCYP1A2Test.healthFactor = 0;
 lessCaffineStimulationCYP1A2Test.snps = ["rs762551", "rs12720461", "rs2069526", "rs28399424"];
-lessCaffineStimulationCYP1A2Test.chromosomes = ["15"]
+lessCaffineStimulationCYP1A2Test.chromosomes = "15";
 lessCaffineStimulationCYP1A2Test.link = "http://www.snpedia.com/index.php/Gs159";
 lessCaffineStimulationCYP1A2Test.interpreter = function(data){
 	if(this(data)) return {caffine: 'Caffine has little effect'}
@@ -64,7 +64,7 @@ var bitterTasteTest = require('genoset-bitter');
 bitterTasteTest.key = "bitter";
 bitterTasteTest.desc = "Cannot taste bitterness";
 bitterTasteTest.snps = ["rs10246939", "rs713598", "rs1726866"];
-bitterTasteTest.chromosomes = ["7"]
+bitterTasteTest.chromosomes = "7";
 bitterTasteTest.link = "http://www.snpedia.com/index.php/Gs184";
 bitterTasteTest.healthFactor = 0;
 
@@ -72,7 +72,7 @@ var rapidMetabolismCYP2C19Test = require('genoset-150');
 rapidMetabolismCYP2C19Test.key = "metabolismfast";
 rapidMetabolismCYP2C19Test.desc = "Has a fast metabolism";
 rapidMetabolismCYP2C19Test.snps = ["rs4244285", "rs17878459", "rs4986893", "rs28399504", "rs41291556", "rs17884712", "rs6413438", "rs17879685", "rs12248560", "rs5787121"];
-rapidMetabolismCYP2C19Test.chromosomes = ["10"];
+rapidMetabolismCYP2C19Test.chromosomes = "10";
 rapidMetabolismCYP2C19Test.link = "http://www.snpedia.com/index.php/Gs150";
 rapidMetabolismCYP2C19Test.healthFactor = 0;
 
@@ -80,7 +80,7 @@ var lactoseIntoleranceTest = require('genoset-101');
 lactoseIntoleranceTest.key = "lactose";
 lactoseIntoleranceTest.desc = "Not lactose intolerant";
 lactoseIntoleranceTest.snps = ["rs4988235", "rs4988235", "rs182549", "rs182549"];
-lactoseIntoleranceTest.chromosomes = ["2"]
+lactoseIntoleranceTest.chromosomes = "2";
 lactoseIntoleranceTest.link = "http://www.snpedia.com/index.php/Gs101";
 lactoseIntoleranceTest.riskMultiplier = 0;
 lactoseIntoleranceTest.healthFactor = 0;

@@ -27,36 +27,27 @@ app.get('/data', function (req, res, next) {
 	var lowRiskResults = testObj.funcs.runLowRisk(testingSuite.lowrisk, testSubject);
 	var preventionResults = testObj.funcs.runPrevention(testingSuite.prevent, testSubject);
 	var immunityResults = testObj.funcs.runImmunity(testingSuite.immunity, testSubject);
+
 	var totalHealthScore = 0;
-	var totalRiskHealthScore = 0;
-	highRiskResults.forEach(function (result){
-		if(result.booleanVal){
-			totalHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
-			totalRiskHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
-		} 
-	})
-	var totalCancerRiskHealthScore = 0;
-	highRiskCancerResults.forEach(function (result){
-		if(result.booleanVal) {
-			totalHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
-			totalCancerRiskHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
-		} 
-	})
-	var totalLowRiskHealthScore = 0;
-	lowRiskResults.forEach(function (result){
-		if(result.booleanVal) {
-			totalHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
-			totalLowRiskHealthScore += (Number(result.healthFactor) * result.riskMultiplier);
-		} 
-	})
-	var totalPreventionHealthScore = 0;
-	preventionResults.forEach(function (result){
-		if(result.booleanVal){
-			totalHealthScore += (Number(result.healthFactor) * result.magnitude);	
-			totalPreventionHealthScore += (Number(result.healthFactor) * result.magnitude);
-		} 
-	})
-	
+	var totalRiskHealthScore = aggregateTestData(highRiskResults, "riskMultiplier");
+	var totalCancerRiskHealthScore = aggregateTestData(highRiskCancerResults, "riskMultiplier");
+	var totalLowRiskHealthScore = aggregateTestData(lowRiskResults, "riskMultiplier");
+	var totalPreventionHealthScore = aggregateTestData(preventionResults, "magnitude");
+
+
+	function aggregateTestData (results, factor) {
+		var localAccumulator = 0;
+		results.forEach(function (result){
+			console.log("TEST", localAccumulator, factor);
+			if(result.booleanVal){
+				totalHealthScore += (Number(result.healthFactor) * result[factor]);	
+				localAccumulator += (Number(result.healthFactor) * result[factor]);
+			} 
+		})
+		return localAccumulator;
+
+	}
+
 	var profile = {
 		healthScores: {
 			total:  totalHealthScore,
@@ -76,6 +67,10 @@ app.get('/data', function (req, res, next) {
 	}
 	res.json(profile);
 })
+
+
+
+
 
 app.get('/', function (req, res) {
     res.sendFile(indexPath);
