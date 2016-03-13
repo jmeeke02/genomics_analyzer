@@ -1,5 +1,5 @@
 <div style="background:url('../public/dna-ring.gif')no-repeat; width:800px; height:900px" class="container text-center">
-    <div class="landing">
+    <div  ng-hide="converting" class="landing">
             <div class="col-md-12">
                 <h1 class="clarity">Welcome to J-Nome</h1>
                 <h5 class="clarity">J-Nome is a Genome Analyzer</h5>
@@ -14,9 +14,17 @@
 				    <li ui-sref="analyzer({userid: 1})"><a> Test Subject 2</a> </li>
 				    <li ui-sref="analyzer({userid: 2})"><a> Test Subject 3 </a> </li>
 				    <li role="separator" class="divider"></li>
-				    <li ui-sref="upload"><a> Upload your own Genome </a> </li>
+				    <li>
+				    	<input ng-click="upload()" type="file" file-model='fileToUpload'>Upload your own Genome </input>
+				    </li>
 				  </ul>
 				</div>
             </div>
     </div>
+    <div ng-show="converting" class='landing'>
+		<div class="col-md-12">
+            <h3 class="clarity">Uploading File ...</h3>
+            <h5 class="clarity">* this can take up to 20min - thanks for you patience *</h5>
+        </div>
+    <div>
 </div>

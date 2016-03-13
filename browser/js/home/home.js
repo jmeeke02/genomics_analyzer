@@ -2,6 +2,7 @@ app.config(function ($stateProvider) {
     $stateProvider.state('home', {
         url: '/home',
         templateUrl: 'browser/js/home/home.html',
+        controller: 'HomeCtrl'
     }),
     $stateProvider.state('analyzer', {
     	url:'/analyzer/:userid',
@@ -18,3 +19,6 @@ app.config(function ($stateProvider) {
     	}
     })
 });
+
+
+

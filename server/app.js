@@ -5,8 +5,10 @@ var fs = require('fs');
 var app = express();
 var testObj = require('../dnaTests.js');
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+var convertJSON = require('./RawtoJSON.js');
+
+app.use(bodyParser.urlencoded({extended: false, limit: '50mb'}));
+app.use(bodyParser.json({limit: '50mb'}));
 
 var rootPath = path.join(__dirname, '../');
 var indexPath = path.join(rootPath, '/browser/index.html');
@@ -14,7 +16,16 @@ var indexPath = path.join(rootPath, '/browser/index.html');
 app.use(express.static(rootPath));
 app.use(express.static(rootPath + 'node_modules'));
 
-
+app.post('/upload', function (req, res, next) {
+    var textData = req.body.data;
+    fs.writeFile(path.join(rootPath, '/data/raw/user-upload.txt'), textData, 'utf8', function (e) {
+        if (e) console.error(e);
+        else{
+        	convertJSON();
+        	res.sendStatus(201);
+        } 
+    });
+});
 
 app.get('/data/:key', function (req, res, next) {
 	var testingSuite = testObj.tests;
