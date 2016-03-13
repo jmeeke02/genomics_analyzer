@@ -249,6 +249,14 @@ heartAttackLowRisk295Test.link = "http://www.snpedia.com/index.php/Gs295";
 heartAttackLowRisk295Test.riskMultiplier = 0.46;
 heartAttackLowRisk295Test.healthFactor = 1;
 
+var heartAttackLowRiskTest296Test = require('./genoset-296');
+heartAttackLowRisk296Test.key = 'heartattacklow3';
+heartAttackLowRisk296Test.desc = 'This genoset is reported as having 0.59x the risk of a heart attack or cardiovascular incident.';
+heartAttackLowRisk296Test.snps = ['rs1108580', 'rs1611115'];
+heartAttackLowRisk296Test.link = "http://www.snpedia.com/index.php/Gs296";
+heartAttackLowRisk296Test.riskMultiplier = 0.59;
+heartAttackLowRisk296Test.healthFactor = 1;
+
 var bloodPressureLowRisk = require('./genoset-265');
 bloodPressureLowRisk.key= "bloodpressure";
 bloodPressureLowRisk.desc = "Associated with decreased diastolic blood pressure levels";
@@ -332,7 +340,7 @@ var highRiskTestSuite = [panicDisorderTest, parkinsonsDiseaseHighRiskTest, alzhe
 
 var highRiskCancerTestSuite = [thyroidCancerTest, basalCellCarcinoma123Test, breastCancer65Test, prostateCancerDeathRiskTest, malignantMelanomaTest, colorectalCancerTest, ovarianCancerTest, breastCancer120Test, esophagealCancerTest];
 
-var lowRiskTestSuite = [parkinsonsDiseaseLowRiskTest, heartAttackLowRiskTest, bloodPressureLowRisk, heartAttackLowRisk295Test, betterEpisodicMemoryTest];
+var lowRiskTestSuite = [parkinsonsDiseaseLowRiskTest, heartAttackLowRiskTest, bloodPressureLowRisk, heartAttackLowRisk295Test, heartAttackLowRisk296Test, betterEpisodicMemoryTest];
 
 var preventativeTestSuite = [sickleCellAnemiaTest, poorMetabolizerCYP2C19Test, impairedNSAIDMetabolismTest, poorMetabolizerCYP2C9Test, poorMetabolizerWarfarin, lessMultivitaminResponseTest];
 
