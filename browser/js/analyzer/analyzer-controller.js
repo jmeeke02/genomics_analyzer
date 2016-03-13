@@ -50,8 +50,8 @@ app.controller('AnalyzerCtrl', function ($scope, $state, dataset){
 		labels: [],
 		 datasets: [
 	        {
-	            label: "My First dataset",
-	            fillColor: "#FDB45C",
+	            label: "Prevention Data",
+	            fillColor: "#F7464A",
 	            strokeColor: "rgba(220,220,220,0.8)",
 	            highlightFill: "rgba(220,220,220,0.75)",
 	            highlightStroke: "rgba(220,220,220,1)",

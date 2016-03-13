@@ -7,7 +7,7 @@
 			<img class="chromo" src="../../../public/chromosomes.jpg">
 	</div> -->
 	<h3 class="text-center"> Breakdown </h3>
-	<br></br>
+	<hr>
 	<div class="row">
 		<h3 class=" col-md-12"> General Tests </h3>
 		<div class='col-md-12'>
@@ -22,7 +22,7 @@
 			<br></br>
 		</div>
 	</div>
-	
+	<hr>
 	<div class="row">
 		<h3 class="col-md-12"> High Risk Tests </h3>
 		<div class="col-md-6">
@@ -37,9 +37,10 @@
 		</div>
 		<div class='col-md-6'>
 			<h4 class="pull-right">Risk Multipliers by Severity</h4>
-			<canvas id="highrisk" width="700px" height="700px"></canvas>
+			<canvas id="highrisk" width="650px" height="650px"></canvas>
 		</div>
 	</div>
+	<hr>
 	<div class="row">
 		<h3 class="col-md-12"> High Risk Cancer Tests </h3>
 		<br>
@@ -55,8 +56,8 @@
 			<p> Factor: {{test.healthFactor}}</p>
 			<br></br>
 		</div>
-		
 	</div>
+	<hr>
 	<div class="row">
 		<h3 class="col-md-12"> Low Risk Tests </h3>
 		<br></br>
@@ -70,6 +71,19 @@
 		</div>
 		
 	</div>
+	<hr>
+	<div class="row">
+		<h3 class="col-md-12"> Immunity Tests </h3>
+		<br></br>
+		<div ng-class="{highlight: test.booleanVal}" class="col-md-3 unit-test" ng-repeat="test in immunityTests">
+			<strong><a class="clarity" href="{{test.link}}">Test ID: {{test.key}}</a></strong>
+			<p>Description: {{test.description}}</p>
+			<p ng-class="{green: test.booleanVal, red: !test.booleanVal}">Result: {{test.booleanVal}}</p>
+			<p> Factor: {{test.healthFactor}}</p>
+			<br></br>
+		</div>
+	</div>
+	<hr>
 	<div class="row">
 		<h3 class=" col-md-12"> Prevention Tests </h3>
 		<br></br>
@@ -83,19 +97,10 @@
 		</div>
 		<div class='col-md-12'>
 			<h5>Prevention Magnitude by Test</h5>
-			<canvas id="prevention" width="800px" height="350px"></canvas>
+			<canvas id="prevention" width="1200px" height="300px"></canvas>
 		</div>
 	</div>
-		<div class="row">
-		<h3 class="col-md-12"> Immunity Tests </h3>
-		<br></br>
-		<div ng-class="{highlight: test.booleanVal}" class="col-md-3 unit-test" ng-repeat="test in immunityTests">
-			<strong><a class="clarity" href="{{test.link}}">Test ID: {{test.key}}</a></strong>
-			<p>Description: {{test.description}}</p>
-			<p ng-class="{green: test.booleanVal, red: !test.booleanVal}">Result: {{test.booleanVal}}</p>
-			<p> Factor: {{test.healthFactor}}</p>
-			<br></br>
-		</div>
-	</div>
+	<hr>
+	
 	<div>Disclosure: These results are in no way an 100% indication of risk or disease. Please consult a real physician if you have further questions.</div>
 </div>

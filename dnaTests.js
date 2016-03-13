@@ -113,7 +113,7 @@ type1DiabetesTest.healthFactor = Number(-1);
 
 var venousThrombosisTest = require('./genoset-251');
 venousThrombosisTest.key = "venousthrombosis";
-venousThrombosisTest.desc = "Coinheritance of Factor V Mutation (Leiden) is associated with a 3-4-fold increased risk of venous thrombosis";
+venousThrombosisTest.desc = "Associated with a 3-4-fold increased risk of venous thrombosis";
 venousThrombosisTest.link = "http://www.snpedia.com/index.php/Gs251";
 venousThrombosisTest.snps = ['rs6025', 'rs1800595'];
 venousThrombosisTest.riskMultiplier = 4;
@@ -137,7 +137,7 @@ rheumatoidArthritisRiskTest.healthFactor = Number (-1);
 
 var bh4RiskTest = require('./genoset-224');
 bh4RiskTest.key = "bh4";
-bh4RiskTest.desc = "Associated with lower levels of tetrahydrobiopterin (BH4) and total biopterins. BH4 is used in production of serotonin and dopamine.";
+bh4RiskTest.desc = "Associated with lower levels of tetrahydrobiopterin (BH4) used in serotonin and dopamine.";
 bh4RiskTest.link = "http://www.snpedia.com/index.php/Gs224";
 bh4RiskTest.snps = ['rs10483639', 'rs3783641', 'rs8007267'];
 bh4RiskTest.riskMultiplier = 3;
