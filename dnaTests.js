@@ -31,6 +31,13 @@ baldTest.interpreter = function(data){
 	else return {bald: 'Not likely to go bald'}
 }
 
+var blueEyesTest = require('./genoset-257');
+blueEyesTest.key = 'blue';
+blueEyesTest.desc = "Blue eye haplotype #2";
+blueEyesTest.healthFactor = 0;
+blueEyesTest.snps = ['rs1129038', 'rs12913832'];
+blueEyesTest.link = 'http://www.snpedia.com/index.php/Gs257';
+
 
 // var alcoholFlushTest = require('genoset-alcohol-flush-reaction');
 // alcoholFlushTest.key = "flush";
@@ -62,6 +69,14 @@ rapidMetabolismCYP2C19Test.snps = ["rs4244285", "rs17878459", "rs4986893", "rs28
 rapidMetabolismCYP2C19Test.link = "http://www.snpedia.com/index.php/Gs150";
 rapidMetabolismCYP2C19Test.healthFactor = 0;
 
+var lactoseIntoleranceTest = require('genoset-101');
+lactoseIntoleranceTest.key = "lactose";
+lactoseIntoleranceTest.desc = "Not lactose intolerant";
+lactoseIntoleranceTest.snps = ["rs4988235", "rs4988235", "rs182549", "rs182549"];
+lactoseIntoleranceTest.link = "http://www.snpedia.com/index.php/Gs101";
+lactoseIntoleranceTest.riskMultiplier = 0;
+lactoseIntoleranceTest.healthFactor = 0;
+
 //HIGH RISK
 var panicDisorderTest = require('genoset-209');
 panicDisorderTest.key = "panic";
@@ -71,13 +86,6 @@ panicDisorderTest.link = "http://www.snpedia.com/index.php/Gs209";
 panicDisorderTest.riskMultiplier = 1.7;
 panicDisorderTest.healthFactor = Number(-1);
 
-var lactoseIntoleranceTest = require('genoset-101');
-lactoseIntoleranceTest.key = "lactose";
-lactoseIntoleranceTest.desc = "Not lactose intolerant";
-lactoseIntoleranceTest.snps = ["rs4988235", "rs4988235", "rs182549", "rs182549"];
-lactoseIntoleranceTest.link = "http://www.snpedia.com/index.php/Gs101";
-lactoseIntoleranceTest.riskMultiplier = 0;
-lactoseIntoleranceTest.healthFactor = 0;
 
 var parkinsonsDiseaseHighRiskTest = require('genoset-249');
 parkinsonsDiseaseHighRiskTest.key = "parkinsonshigh";
@@ -103,6 +111,38 @@ type1DiabetesTest.snps = ["rs7454108", "rs2040410", "rs2040410"];
 type1DiabetesTest.riskMultiplier = 4;
 type1DiabetesTest.healthFactor = Number(-1);
 
+var venousThrombosisTest = require('./genoset-251');
+venousThrombosisTest.key = "venousthrombosis";
+venousThrombosisTest.desc = "Coinheritance of Factor V Mutation (Leiden) is associated with a 3-4-fold increased risk of venous thrombosis";
+venousThrombosisTest.link = "http://www.snpedia.com/index.php/Gs251";
+venousThrombosisTest.snps = ['rs6025', 'rs1800595'];
+venousThrombosisTest.riskMultiplier = 4;
+venousThrombosisTest.healthFactor = Number(-1);
+
+var macularDegenerationTest = require('./genoset-134')
+macularDegenerationTest.key = "maculardegeneration";
+macularDegenerationTest.desc = "Increased risk of age related macular degeneration"
+macularDegenerationTest.link = "http://www.snpedia.com/index.php/Gs134";
+macularDegenerationTest.snps = ["rs380390", "rs3793784"];
+macularDegenerationTest.riskMultiplier = 2.5;
+macularDegenerationTest.healthFactor = Number(-1);
+
+var rheumatoidArthritisRiskTest = require('./genoset-108');
+rheumatoidArthritisRiskTest.key = "arthritis";
+rheumatoidArthritisRiskTest.desc = "This genoset may indicate the haplotype CTCC which has been linked to rheumatoid arthritis";
+rheumatoidArthritisRiskTest.link = 'http://www.snpedia.com/index.php/Gs108'
+rheumatoidArthritisRiskTest.snps = ["rs6311", "rs1328674", "rs6313", "rs6314"];
+rheumatoidArthritisRiskTest.riskMultiplier = 2;
+rheumatoidArthritisRiskTest.healthFactor = Number (-1);
+
+var bh4RiskTest = require('./genoset-224');
+bh4RiskTest.key = "bh4";
+bh4RiskTest.desc = "Associated with lower levels of tetrahydrobiopterin (BH4) and total biopterins. BH4 is used in production of serotonin and dopamine.";
+bh4RiskTest.link = "http://www.snpedia.com/index.php/Gs224";
+bh4RiskTest.snps = ['rs10483639', 'rs3783641', 'rs8007267'];
+bh4RiskTest.riskMultiplier = 3;
+bh4RiskTest.healthFactor = 0;
+
 //HIGH-RISK CANCERs
 var thyroidCancerTest = require('genoset-137');
 thyroidCancerTest.key = "thyroid";
@@ -121,7 +161,7 @@ basalCellCarcinoma123Test.riskMultiplier = 2.7;
 basalCellCarcinoma123Test.healthFactor = Number(-1);
 
 var breastCancer65Test = require('genoset-119');
-breastCancer65Test.key = "breast";
+breastCancer65Test.key = "breast65";
 breastCancer65Test.desc = "High risk of breast cancer";
 breastCancer65Test.riskMultiplier = 6.5
 breastCancer65Test.snps = ["rs1501299","rs2241766"];
@@ -136,13 +176,70 @@ prostateCancerDeathRiskTest.snps = ["rs1137100", "rs627839", "rs2070874", "rs107
 prostateCancerDeathRiskTest.riskMultiplier = 2;
 prostateCancerDeathRiskTest.healthFactor = Number(-1);
 
+var malignantMelanomaTest = require('./genoset-195');
+malignantMelanomaTest.key = "melanoma";
+malignantMelanomaTest.desc = "Has a very significant risk factor for malignant melanoma."
+malignantMelanomaTest.link = "http://www.snpedia.com/index.php/Gs195"
+malignantMelanomaTest.snps = ['rs4516035','rs7139166'];
+malignantMelanomaTest.riskMultiplier = 2.5;
+malignantMelanomaTest.healthFactor = Number(-1);
+
+var colorectalCancerTest = require('./genoset-298');
+colorectalCancerTest.key = 'colorectal';
+colorectalCancerTest.desc = 'This genoset detects the ~10% of the population having either 3 or more risk alleles, or 3 at-risk genotypes, at 3 SNPs associated with colorectal cancer.';
+colorectalCancerTest.link = 'http://www.snpedia.com/index.php/Gs298';
+colorectalCancerTest.snps = ['rs16892766', 'rs16892766', 'rs4779584', 'rs4779584', 'rs58920878', 'rs58920878'];
+colorectalCancerTest.riskMultiplier = 3;
+colorectalCancerTest.healthFactor = Number(-1);
+
+var ovarianCancerTest = require('./genoset-286');
+ovarianCancerTest.key = "ovarian";
+ovarianCancerTest.desc = "Haplotype of the progesterone receptor gene PGR which has been linked with  1.98x increased ovarian cancer and endometrial cancer risk for caucasian women."
+ovarianCancerTest.link = "http://www.snpedia.com/index.php/Gs286";
+ovarianCancerTest.snps =  ['rs568157','rs481775','rs529359','rs565186','rs613120','rs543215','rs516693','rs660541','rs1042838','rs608995','rs1870019']
+ovarianCancerTest.riskMultiplier = 1.98;
+ovarianCancerTest.healthFactor = Number(-1);
+
+breastCancer120Test = require('./genoset-120');
+breastCancer120Test.key = "breast120";
+breastCancer120Test.desc = "4x higher breast cancer risk. adiponectin intermediate signaler";
+breastCancer120Test.link = "http://www.snpedia.com/index.php/Gs120";
+breastCancer120Test.snps = ['rs1501299', 'rs2241766' ];
+breastCancer120Test.riskMultiplier = 4;
+breastCancer120Test.healthFactor = Number(-1);
+
 //LOW RISK
 var parkinsonsDiseaseLowRiskTest = require('genoset-248');
 parkinsonsDiseaseLowRiskTest.key = "parkinsonslow";
 parkinsonsDiseaseLowRiskTest.desc = "Low risk of parkinsons disease";
 parkinsonsDiseaseLowRiskTest.snps = ["rs34637584", "rs11755699"];
 parkinsonsDiseaseLowRiskTest.link = "http://www.snpedia.com/index.php/Gs248";
+parkinsonsDiseaseLowRiskTest.riskMultiplier = 0.5;
 parkinsonsDiseaseLowRiskTest.healthFactor = 1;
+
+var heartAttackLowRiskTest = require('./genoset-291');
+heartAttackLowRiskTest.key = "heartattacklow";
+heartAttackLowRiskTest.desc = " This genoset is reported as having 0.35x the risk of a heart attack or cardiovascular incident compared to people who carry zero of the minor alleles for these two SNPs";
+heartAttackLowRiskTest.snps = ['rs1108580', 'rs1611115'];
+heartAttackLowRiskTest.link = "http://www.snpedia.com/index.php/Gs291";
+heartAttackLowRiskTest.riskMultiplier = 0.35;
+heartAttackLowRiskTest.healthFactor = 1;
+
+var heartAttackLowRisk295Test = require('./genoset-295');
+heartAttackLowRisk295Test.key = "heartattacklow2";
+heartAttackLowRisk295Test.desc = "This genoset is reported as having 0.46x the risk of a heart attack or cardiovascular incident."
+heartAttackLowRisk295Test.snps = ['rs1108580', 'rs1611115'];
+heartAttackLowRisk295Test.link = "http://www.snpedia.com/index.php/Gs295";
+heartAttackLowRisk295Test.riskMultiplier = 0.46;
+heartAttackLowRisk295Test.healthFactor = 1;
+
+var bloodPressureLowRisk = require('./genoset-265');
+bloodPressureLowRisk.key= "bloodpressure";
+bloodPressureLowRisk.desc = "Associated with decreased diastolic blood pressure levels";
+bloodPressureLowRisk.snps = ['rs6046', 'rs5355'];
+bloodPressureLowRisk.link = "http://www.snpedia.com/index.php/Gs265";
+bloodPressureLowRisk.riskMultiplier = 0.3;
+bloodPressureLowRisk.healthFactor = 1;
 
 //PREVENTION
 var sickleCellAnemiaTest =  require('./genoset-228');
@@ -189,13 +286,13 @@ norovirusTest.healthFactor = 1;
 var diagnosticsFullTestSuite =  [maleTest, gingerTest, baldTest, lessCaffineStimulationCYP1A2Test, bitterTasteTest, rapidMetabolismCYP2C19Test, panicDisorderTest, lactoseIntoleranceTest, parkinsonsDiseaseHighRiskTest, alzheimersHighRiskTest, type1DiabetesTest, thyroidCancerTest, basalCellCarcinoma123Test, breastCancer65Test, prostateCancerDeathRiskTest, sickleCellAnemiaTest,  poorMetabolizerCYP2C19Test, poorMetabolizerCYP2C9Test, poorMetabolizerWarfarin, norovirusTest];
 
 
-var generalTestSuite = [maleTest, gingerTest, baldTest, lessCaffineStimulationCYP1A2Test, bitterTasteTest, rapidMetabolismCYP2C19Test];
+var generalTestSuite = [maleTest, gingerTest, baldTest, blueEyesTest, lessCaffineStimulationCYP1A2Test, bitterTasteTest, rapidMetabolismCYP2C19Test, lactoseIntoleranceTest];
 
-var highRiskTestSuite = [panicDisorderTest, parkinsonsDiseaseHighRiskTest, alzheimersHighRiskTest, type1DiabetesTest];
+var highRiskTestSuite = [panicDisorderTest, parkinsonsDiseaseHighRiskTest, alzheimersHighRiskTest, type1DiabetesTest, venousThrombosisTest, macularDegenerationTest, rheumatoidArthritisRiskTest, bh4RiskTest];
 
-var highRiskCancerTestSuite = [thyroidCancerTest, basalCellCarcinoma123Test, breastCancer65Test, prostateCancerDeathRiskTest];
+var highRiskCancerTestSuite = [thyroidCancerTest, basalCellCarcinoma123Test, breastCancer65Test, prostateCancerDeathRiskTest, malignantMelanomaTest, colorectalCancerTest, ovarianCancerTest, breastCancer120Test];
 
-var lowRiskTestSuite = [parkinsonsDiseaseLowRiskTest];
+var lowRiskTestSuite = [parkinsonsDiseaseLowRiskTest, heartAttackLowRiskTest, bloodPressureLowRisk, heartAttackLowRisk295Test];
 
 var preventativeTestSuite = [sickleCellAnemiaTest, poorMetabolizerCYP2C19Test, poorMetabolizerCYP2C9Test, poorMetabolizerWarfarin];
 
@@ -215,9 +312,11 @@ var diagnosticsTestSuite = {
 //TEST SUBJECTS
 var dna = require('./data/json/23andme-male.json');
 var dna2 = require('./data/json/ancestry-female.json');
+var dna3 = require('./data/json/family-tree-male.json');
+
 
 //SUBJECT LIST
-var testSubjects = [dna, dna2];
+var testSubjects = [dna, dna2, dna3];
 
 //DIAGNOSTIC TESTS RUNNER
 function runDNAJSON (testSuite, subject){

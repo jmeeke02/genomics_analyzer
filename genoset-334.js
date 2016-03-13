@@ -2,6 +2,6 @@
 var gql = require('gql')
 
 module.exports = gql.or([
-	gql.only('rs334', 'T'),
-	gql.only('i3003137', 'A')
-])
+  gql.exact('rs334', 'TT'),
+  gql.exact('i3003137', 'AA')
+]);

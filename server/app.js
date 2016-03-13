@@ -19,7 +19,7 @@ app.use(express.static(rootPath + 'node_modules'));
 app.get('/data', function (req, res, next) {
 	console.log('getting data');
 	var testingSuite = testObj.tests;
-	var testSubject = testObj.subjects[0];
+	var testSubject = testObj.subjects[2];
 
 	var generalResults = testObj.funcs.runGeneral(testingSuite.general, testSubject);
 	var highRiskResults = testObj.funcs.runHighRisk(testingSuite.highrisk, testSubject);
