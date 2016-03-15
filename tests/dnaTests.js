@@ -1,6 +1,7 @@
 
 //GENOSET TEST MODULES
 //GENERAL INFO
+var path = require('path');
 
 var maleTest = require('genoset-male');
 maleTest.key = "gender";
@@ -358,10 +359,11 @@ var diagnosticsTestSuite = {
 
 
 //TEST SUBJECTS
-var dna = require('./data/json/23andme-male.json');
-var dna2 = require('./data/json/ancestry-female.json');
-var dna3 = require('./data/json/family-tree-male.json');
-var dna4 = require('./data/json/user-upload.json');
+var rootPath = path.join(__dirname, '../');
+var dna = require(path.join(rootPath,'data/json/23andme-male.json'));
+var dna2 = require(path.join(rootPath,'data/json/ancestry-female.json'));
+var dna3 = require(path.join(rootPath, 'data/json/family-tree-male.json'));
+var dna4 = require(path.join(rootPath, 'data/json/user-upload.json'));
 
 
 //SUBJECT LIST
