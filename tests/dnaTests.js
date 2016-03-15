@@ -358,10 +358,10 @@ var diagnosticsTestSuite = {
 
 
 //TEST SUBJECTS
-var dna = require('./data/json/23andme-male.json');
-var dna2 = require('./data/json/ancestry-female.json');
-var dna3 = require('./data/json/family-tree-male.json');
-var dna4 = require('./data/json/user-upload.json');
+var dna = require('../data/json/23andme-male.json');
+var dna2 = require('../data/json/ancestry-female.json');
+var dna3 = require('../data/json/family-tree-male.json');
+var dna4 = require('../data/json/user-upload.json');
 
 
 //SUBJECT LIST

@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var app = express();
-var testObj = require('../dnaTests.js');
+var testObj = require('../tests/dnaTests.js');
 
 var convertJSON = require('./RawtoJSON.js');
 
@@ -73,9 +73,6 @@ app.get('/data/:key', function (req, res, next) {
 	}
 	res.json(profile);
 })
-
-
-
 
 
 app.get('/', function (req, res) {
