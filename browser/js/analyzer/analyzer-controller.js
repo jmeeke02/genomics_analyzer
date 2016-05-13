@@ -13,7 +13,6 @@ app.controller('AnalyzerCtrl', function ($scope, $state, dataset){
 	var total = 0;
 	for(let key in $scope.profile.healthScores){
 		total +=  $scope.profile.healthScores[key];
-		console.log(total);
 	}
 
 	$scope.total = total;
@@ -70,7 +69,6 @@ app.controller('AnalyzerCtrl', function ($scope, $state, dataset){
 	}
 
 	dataset.results.prevent.forEach(function (el, i){
-		console.log(el);
 		preventionData.labels.push(el.key);
 		preventionData.datasets[0].data.push(el.magnitude)
 		if(el.booleanVal === true){

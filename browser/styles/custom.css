@@ -24,6 +24,11 @@ a {
 	 cursor: pointer;
 }
 
+a:hover{
+	color: #FDB45C;
+	text-decoration: none;
+}
+
 .highlight {
 	background-color: #333333;
 	border-radius: 5px;
@@ -41,4 +46,16 @@ a {
 
 body {
 	background-color: black;
+}
+
+.back-button {
+	background-color: #46BFBD;
+	color: white;
+	font-size: bold;
+	float: left;
+}
+
+.header {
+	text-align: center;
+	margin-right: 15%;
 }

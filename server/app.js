@@ -33,44 +33,23 @@ app.get('/data/:key', function (req, res, next) {
 	if(req.params.key) var testSubject = testObj.subjects[Number(req.params.key)];
 	else var testSubject = testObj.subjects[0];
 
-	var generalResults = testObj.funcs.runGeneral(testingSuite.general, testSubject);
-	var highRiskResults = testObj.funcs.runHighRisk(testingSuite.highrisk, testSubject);
-	var highRiskCancerResults = testObj.funcs.runHigRiskCancer(testingSuite.highriskcancer, testSubject);
-	var lowRiskResults = testObj.funcs.runLowRisk(testingSuite.lowrisk, testSubject);
-	var preventionResults = testObj.funcs.runPrevention(testingSuite.prevent, testSubject);
-	var immunityResults = testObj.funcs.runImmunity(testingSuite.immunity, testSubject);
+	//sending back a json object with the agreggated scores and the results of each test
+	var profile = {};
+	profile.results = {
+			general: testObj.funcs.testrunner(testingSuite.general, testSubject),
+			highrisk: testObj.funcs.testrunner(testingSuite.highrisk, testSubject, 'risk'),
+			highriskcancer: testObj.funcs.testrunner(testingSuite.highriskcancer, testSubject, 'risk'),
+			lowrisk: testObj.funcs.testrunner(testingSuite.lowrisk, testSubject, 'risk'),
+			prevent: testObj.funcs.testrunner(testingSuite.prevent, testSubject, 'prevention'),
+			immunity: testObj.funcs.testrunner(testingSuite.immunity, testSubject),
+		};
 
-	var totalHealthScore = 0;
-
-	function aggregateTestData (results, factor) {
-		var localAccumulator = 0;
-		results.forEach(function (result){
-			if(result.booleanVal){
-				totalHealthScore += (Number(result.healthFactor) * result[factor]);	
-				localAccumulator += (Number(result.healthFactor) * result[factor]);
-			} 
-		})
-		console.log("total", totalHealthScore);
-		return localAccumulator;
-	}
-	console.log('totalHealthScore', totalHealthScore);
-
-	var profile = {
-		healthScores: {
-			highrisk:  aggregateTestData(highRiskResults, "riskMultiplier"),
-			highriskcancer: aggregateTestData(highRiskCancerResults, "riskMultiplier"),
-			lowrisk: aggregateTestData(lowRiskResults, "riskMultiplier"),
-			prevention: aggregateTestData(preventionResults, "magnitude")
-		},
-		results: {
-			general: generalResults,
-			highrisk: highRiskResults,
-			highriskcancer: highRiskCancerResults,
-			lowrisk: lowRiskResults,
-			prevent: preventionResults,
-			immunity: immunityResults
-		}
-	}
+	profile.healthScores = {
+			highrisk:  testObj.funcs.aggregateTestData(profile.results.highrisk, "riskMultiplier"),
+			highriskcancer: testObj.funcs.aggregateTestData(profile.results.highriskcancer, "riskMultiplier"),
+			lowrisk: testObj.funcs.aggregateTestData(profile.results.lowrisk, "riskMultiplier"),
+			prevention: testObj.funcs.aggregateTestData(profile.results.prevent, "magnitude")
+		};
 	res.json(profile);
 })
 
