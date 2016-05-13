@@ -1,6 +1,6 @@
 app.config(function ($stateProvider) {
     $stateProvider.state('home', {
-        url: '/home',
+        url: '/',
         templateUrl: 'browser/js/home/home.html',
         controller: 'HomeCtrl'
     }),
@@ -10,7 +10,6 @@ app.config(function ($stateProvider) {
     	controller: 'AnalyzerCtrl',
     	resolve: {
     		dataset: function(AnalyzerFactory, $stateParams){
-    			console.log('runs');
     			return AnalyzerFactory.getExampleResults($stateParams.userid)
     			.then(function(allTests){
     				return allTests;
